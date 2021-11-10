@@ -26,7 +26,7 @@ public class OrderController {
         return restTemplate.getForObject(PAYMENT_URL+"/payment/get/"+id,CommonResult.class);
     }
 
-    @GetMapping("/consumer/paymet/getForEntity/{id}")
+    @GetMapping("/consumer/payment/getForEntity/{id}")
     public CommonResult<Payment> getPayment2(@PathVariable("id") Integer id){
         ResponseEntity<CommonResult> entity = restTemplate.getForEntity(PAYMENT_URL + "/payment/get/" + id, CommonResult.class);
 
@@ -35,6 +35,11 @@ public class OrderController {
         }else {
             return new CommonResult<>(444,"failed");
         }
+    }
+
+    @GetMapping("/consumer/payment/zipkin")
+    public String paymentZipkin(){
+        return restTemplate.getForObject(PAYMENT_URL+"/payment/zipkin/",String.class);
     }
 
 }

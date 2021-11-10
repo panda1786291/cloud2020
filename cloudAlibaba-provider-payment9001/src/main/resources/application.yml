@@ -1,0 +1,17 @@
+server:
+  port: 83
+spring:
+  application:
+    name: nacaos-order-consumer
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #注册进入nacos中心
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
